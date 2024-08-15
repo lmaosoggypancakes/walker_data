@@ -2,3 +2,4 @@ runs
 raw
 out
 cropped
+__pycache__
