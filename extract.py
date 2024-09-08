@@ -22,7 +22,7 @@ if __name__ == "__main__":
     outfn = "out/" + sys.argv[1].split("/")[-1].split(".")[0] + ".csv"
     print(outfn)
     out = open(outfn, "w")
-    out.write("t,x,y,vx,vy,v, v_cm\n")
+    out.write("t,x_px,y_px,x_cm,y_cm\n")
     out.close()
     out = open(outfn, "a")
     print("loading model...")
@@ -57,7 +57,7 @@ if __name__ == "__main__":
             v = round(math.sqrt(vx ** 2 + vy ** 2), 10) / SAMPLING
             vels.append(v)
             v_cm = round(v / PX_TO_CM, 10)
-            out.write(f"{t}, {center[0]}, {center[1]}, {vx}, {vy}, {v}, {v_cm}\n")
+            out.write(f"{t}, {center[0]}, {center[1]}, {center[0]/PX_TO_CM}, {center[1]/PX_TO_CM}\n")
             last_point = center
         key = cv2.waitKey(1) & 0xFF
         if key == ord("q"):
