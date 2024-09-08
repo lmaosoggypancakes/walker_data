@@ -3,4 +3,4 @@ from roboflow import Roboflow
 # Load a model
 model = YOLO("yolov8n.pt")
       
-model.train(data="data.yaml", epochs=50)
+model.train(data="data.yaml", epochs=20)

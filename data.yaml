@@ -1,12 +1,12 @@
 names:
-- robots
+- robot
 nc: 1
 roboflow:
   license: CC BY 4.0
-  project: walker_project
-  url: https://universe.roboflow.com/mrl-zse1m/walker_project/dataset/2
-  version: 2
+  project: muadib
+  url: https://universe.roboflow.com/mrl-zse1m/muadib/dataset/1
+  version: 1
   workspace: mrl-zse1m
-test: test/images
-train: train/images
-val: valid/images
+test: ../test/images
+train: muadib-1/train/images
+val: muadib-1/valid/images

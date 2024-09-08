@@ -8,20 +8,23 @@ import math
 from util import crop, _filter
 
 WIN_NAME = "smallgatu lmaooo"
-RED_TO_RED = 144.222 # 150px/10cm
+RED_TO_RED = 144.222*2 # 150px/10cm
 PX_TO_CM = RED_TO_RED / 10
 SAMPLING = 1 # 1/SAMPING of frames will be used
 if __name__ == "__main__":
     vels = []
     last_point = None
     if len(sys.argv) != 2:
+        print(sys.argv)
         print(f"usage: {sys.argv[0]} path/to/video")
         sys.exit()
     # Load a model
-    out = open("data.csv", "w")
+    outfn = "out/" + sys.argv[1].split("/")[-1].split(".")[0] + ".csv"
+    print(outfn)
+    out = open(outfn, "w")
     out.write("t,x,y,vx,vy,v, v_cm\n")
     out.close()
-    out = open("data.csv", "a")
+    out = open(outfn, "a")
     print("loading model...")
     model = YOLO("weights.pt")
     print("loading video...")
@@ -74,7 +77,7 @@ if __name__ == "__main__":
             f.write(f"{t}, {vels_smooth[i]}\n")
 
     out.close()
-    print("file saved to "  + sys.argv[1])
+    print("file saved to "  + outfn)
     print("data points: " + str(int(frames)))
     cap.release()
     cv2.destroyAllWindows()
