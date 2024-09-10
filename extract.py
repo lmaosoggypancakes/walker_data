@@ -19,7 +19,7 @@ if __name__ == "__main__":
         print(f"usage: {sys.argv[0]} path/to/video")
         sys.exit()
     # Load a model
-    outfn = "out/" + sys.argv[1].split("/")[-1].split(".")[0] + ".csv"
+    outfn = "out/turn/" + sys.argv[1].split("/")[-1].split(".")[0] + ".csv"
     print(outfn)
     out = open(outfn, "w")
     out.write("t,x_px,y_px,x_cm,y_cm\n")
